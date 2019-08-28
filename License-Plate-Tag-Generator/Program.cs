@@ -80,7 +80,7 @@ namespace License_Plate_Tag_Generator
             var stateSelections = Console.ReadLine();
             foreach (var stateSelection in stateSelections.Split(',', StringSplitOptions.RemoveEmptyEntries))
             {
-                Console.WriteLine(((IStatePlateGenerator)GetStatePlateGenerator((StatesEnum)Enum.Parse(typeof(StatesEnum), stateSelection))).GeneratePlate());
+                Console.WriteLine($"{Enum.GetName(typeof(StatesEnum), Convert.ToInt32(stateSelection))} - {((IStatePlateGenerator)GetStatePlateGenerator((StatesEnum)Enum.Parse(typeof(StatesEnum), stateSelection))).GeneratePlate()}");
             }
         }
     }
