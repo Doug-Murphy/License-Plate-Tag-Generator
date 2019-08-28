@@ -1,5 +1,5 @@
-﻿using License_Plate_Tag_Generator.Interfaces;
-using System;
+﻿using License_Plate_Tag_Generator.Helpers;
+using License_Plate_Tag_Generator.Interfaces;
 
 namespace License_Plate_Tag_Generator.Classes
 {
@@ -9,7 +9,7 @@ namespace License_Plate_Tag_Generator.Classes
 
         public string GeneratePlate()
         {
-            return "ABC 123";
+            return RandomGenerator.GeneratePlate(Format);
         }
     }
 }

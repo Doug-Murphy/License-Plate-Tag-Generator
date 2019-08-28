@@ -1,15 +1,15 @@
-﻿using License_Plate_Tag_Generator.Interfaces;
-using System;
+﻿using License_Plate_Tag_Generator.Helpers;
+using License_Plate_Tag_Generator.Interfaces;
 
 namespace License_Plate_Tag_Generator.Classes
 {
     class MassachusettsPlateGenerator : IStatePlateGenerator
     {
-        public string Format => throw new NotImplementedException();
+        public string Format => "#XXX ##";
 
         public string GeneratePlate()
         {
-            throw new NotImplementedException();
+            return RandomGenerator.GeneratePlate(Format);
         }
     }
 }
