@@ -6,10 +6,5 @@ namespace License_Plate_Tag_Generator.Classes
     class UtahPlateGenerator : IStatePlateGenerator
     {
         public string Format => "X## #XX";
-
-        public string GeneratePlate()
-        {
-            return RandomGenerator.GeneratePlate(Format);
-        }
     }
 }

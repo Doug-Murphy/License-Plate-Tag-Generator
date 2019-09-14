@@ -1,16 +1,24 @@
-﻿using System;
+﻿using License_Plate_Tag_Generator.Interfaces;
+using System;
 using System.Text;
 
 namespace License_Plate_Tag_Generator.Helpers
 {
-    public static class RandomGenerator
+    public class RandomGenerator
     {
-        public static string GeneratePlate(string plateFormat)
+        private IStatePlateGenerator _statePlateGenerator;
+
+        public RandomGenerator(IStatePlateGenerator statePlateGenerator)
+        {
+            _statePlateGenerator = statePlateGenerator;
+        }
+
+        public string GeneratePlate()
         {
             var returnString = new StringBuilder();
             var randomizer = new Random();
 
-            foreach (var character in plateFormat)
+            foreach (var character in _statePlateGenerator.Format)
             {
                 switch (character)
                 {

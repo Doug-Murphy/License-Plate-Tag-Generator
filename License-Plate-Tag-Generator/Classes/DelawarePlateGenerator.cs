@@ -6,10 +6,5 @@ namespace License_Plate_Tag_Generator.Classes
     class DelawarePlateGenerator : IStatePlateGenerator
     {
         public string Format => "######";
-
-        public string GeneratePlate()
-        {
-            return RandomGenerator.GeneratePlate(Format);
-        }
     }
 }

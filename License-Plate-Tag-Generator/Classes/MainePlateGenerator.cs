@@ -6,10 +6,5 @@ namespace License_Plate_Tag_Generator.Classes
     class MainePlateGenerator : IStatePlateGenerator
     {
         public string Format => "#### XX";
-
-        public string GeneratePlate()
-        {
-            return RandomGenerator.GeneratePlate(Format);
-        }
     }
 }

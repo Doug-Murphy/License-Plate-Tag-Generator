@@ -1,4 +1,5 @@
 ﻿using License_Plate_Tag_Generator.Classes;
+using License_Plate_Tag_Generator.Helpers;
 using License_Plate_Tag_Generator.Interfaces;
 using System;
 
@@ -6,7 +7,7 @@ namespace License_Plate_Tag_Generator
 {
     class Program
     {
-        static object GetStatePlateGenerator(StatesEnum stateSelection)
+        static IStatePlateGenerator GetStatePlateGenerator(StatesEnum stateSelection)
         {
             switch (stateSelection)
             {
@@ -66,7 +67,7 @@ namespace License_Plate_Tag_Generator
             }
         }
 
-        static void Main(string[] args)
+        static void Main()
         {
             var stateIndex = 0;
 
@@ -80,7 +81,11 @@ namespace License_Plate_Tag_Generator
             var stateSelections = Console.ReadLine();
             foreach (var stateSelection in stateSelections.Split(',', StringSplitOptions.RemoveEmptyEntries))
             {
-                Console.WriteLine($"{Enum.GetName(typeof(StatesEnum), Convert.ToInt32(stateSelection))} - {((IStatePlateGenerator)GetStatePlateGenerator((StatesEnum)Enum.Parse(typeof(StatesEnum), stateSelection))).GeneratePlate()}");
+                var stateName = Enum.GetName(typeof(StatesEnum), Convert.ToInt32(stateSelection)).Replace("_", " ");
+                var stateEnum = (StatesEnum)Enum.Parse(typeof(StatesEnum), stateSelection);
+                var state = GetStatePlateGenerator(stateEnum);
+                var generatedPlate = new RandomGenerator(state).GeneratePlate();
+                Console.WriteLine($"{stateName} - {generatedPlate}");
             }
         }
     }

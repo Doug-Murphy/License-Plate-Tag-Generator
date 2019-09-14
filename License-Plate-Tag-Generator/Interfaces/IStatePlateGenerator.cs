@@ -1,9 +1,7 @@
 ﻿namespace License_Plate_Tag_Generator.Interfaces
 {
-    interface IStatePlateGenerator
+    public interface IStatePlateGenerator
     {
         string Format { get; }
-
-        string GeneratePlate();
     }
 }

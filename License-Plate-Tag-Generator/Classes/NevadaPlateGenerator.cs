@@ -6,10 +6,5 @@ namespace License_Plate_Tag_Generator.Classes
     class NevadaPlateGenerator : IStatePlateGenerator
     {
         public string Format => "###*X##";
-
-        public string GeneratePlate()
-        {
-            return RandomGenerator.GeneratePlate(Format);
-        }
     }
 }
